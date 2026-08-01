@@ -413,6 +413,7 @@ if (isEntry) {
       // Bun native serve adapter
       Bun.serve({
         port: config.port,
+        hostname: '0.0.0.0',
         fetch: app.fetch,
       });
     } else {
