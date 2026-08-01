@@ -411,11 +411,7 @@ if (isEntry) {
   const listen = async () => {
     if (typeof Bun !== 'undefined') {
       // Bun native serve adapter
-      Bun.serve({
-        port: config.port,
-        hostname: '0.0.0.0',
-        fetch: app.fetch,
-      });
+      Bun.serve({ port: 8787, hostname: '0.0.0.0', fetch: app.fetch });
     } else {
       const { serve } = await import('@hono/node-server');
       const server = serve({ port: config.port, hostname: '0.0.0.0', fetch: app.fetch });
