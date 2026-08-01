@@ -32,6 +32,7 @@ export const config = {
   },
   logLevel: str('LOG_LEVEL', 'info'),
   prometheusEnabled: bool('PROMETHEUS_ENABLED', true),
+  ipFilterEnabled: bool('IP_FILTER_ENABLED', false),
   fallbackChain: str('FALLBACK_CHAIN', 'anthropic,gemini,deepseek,openrouter,ollama')
     .split(',')
     .map((s) => s.trim().toLowerCase())

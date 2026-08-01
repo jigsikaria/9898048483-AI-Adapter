@@ -34,7 +34,7 @@ app.use('*', cors({
 app.use('*', async (c, next) => {
   const ip = (c.req.header('x-forwarded-for')?.split(',')[0] ?? c.req.header('x-real-ip') ?? 'unknown').trim();
 
-  if (config.ipAllowlist.length > 0 && !config.ipAllowlist.includes(ip)) {
+  if (config.ipFilterEnabled && config.ipAllowlist.length > 0 && !config.ipAllowlist.includes(ip)) {
     return c.json({ error: { message: 'Forbidden: IP not in allowlist', type: 'ip_denied' } }, 403);
   }
 
